@@ -1,0 +1,41 @@
+@use '~design' as *;
+
+.c-content {
+  .wp-element-button,
+  .wp-block-button__link {
+    @include button;
+    @include button-primary;
+
+    &:hover,
+    &:focus {
+      @include button-primary-hover;
+    }
+  }
+}
+
+.c-blog {
+  padding-top: get-padding('large');
+}
+
+.c-content:not(.has-sidebar) {
+  .c-content__inner {
+    > .alignfull {
+      position: relative;
+      left: -16px;
+      width: calc(100% + 32px);
+      max-width: calc(100% + 32px);
+
+      @include bp(xlarge) {
+        @include alignfull;
+      }
+    }
+
+    > .alignwide {
+      position: relative;
+
+      @include bp(full) {
+        @include alignwide;
+      }
+    }
+  }
+}

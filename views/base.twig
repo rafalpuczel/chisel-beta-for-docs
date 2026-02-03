@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html {{ fn('language_attributes') }}>
+<head>
+  <meta charset="{{ site.charset }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="pingback" href="{{ site.pingback_url }}" />
+
+  {{ function('wp_head') }}
+
+  {% block head %}
+  {% endblock %}
+
+  {% do action('chisel_after_wp_head') %}
+</head>
+<body class="{{ body_class }}">
+
+  {{ function('wp_body_open') }}
+
+  <div class="u-sr-only u-sr-only-focusable">
+    <a href="#navigation">{{ __('Jump to Navigation', 'chisel') }}</a>
+    <a href="#main">{{ __('Jump to Main Content', 'chisel') }}</a>
+    <a href="#footer">{{ __('Jump to Footer', 'chisel') }}</a>
+  </div>
+
+  {% block header %}
+    {% include 'components/header.twig' %}
+  {% endblock %}
+
+  <main id="main" class="o-wrapper">
+    {% block breadcrumbs %}
+      {{ breadcrumbs() }}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  {% block footer %}
+    {% include 'components/footer.twig' %}
+  {% endblock %}
+
+  {{ function('wp_footer') }}
+
+  {% block foot %}
+  {% endblock %}
+
+  {% do action('chisel_after_wp_footer') %}
+
+</body>
+</html>

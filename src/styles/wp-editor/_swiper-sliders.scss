@@ -1,0 +1,21 @@
+@use '../components/slider';
+
+.b-slider {
+  .swiper {
+    opacity: 1;
+    transition: get-transition('slow');
+  }
+
+  .swiper-wrapper {
+    display: flex;
+  }
+
+  .swiper-slide {
+    flex: 1 0 100%;
+    width: 100%;
+
+    &:nth-child(n + 2) {
+      display: none;
+    }
+  }
+}

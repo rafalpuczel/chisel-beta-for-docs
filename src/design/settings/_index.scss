@@ -1,0 +1,41 @@
+@use '../tools/theme' as *;
+
+/*
+ * Settings
+ */
+$scrollbar-width: 15px;
+$root-font-size: 16px;
+
+/*
+ * Layout settings
+ */
+$breakpoints: (
+  small: 480px,
+  msmall: 640px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1200px,
+  full: 1600px,
+);
+$layout-columns-no: 12;
+$layout-gutter: get-gap('big');
+$gaps: (
+  'tiny': get-gap('tiny'),
+  'little': get-gap('little'),
+  'small': get-gap('small'),
+  'normal': get-gap('normal'),
+  'medium': get-gap('medium'),
+  'large': get-gap('large'),
+  'xlarge': get-gap('xlarge'),
+  'big': get-gap('big'),
+);
+
+/*
+ * Icons
+ */
+$static-icons: ('minus', 'plus', 'arrow-right', 'arrow-left', 'search');
+$animated-icons: ('loader');
+$multicolor-icons: ();
+
+// Icons module. Also requires packacke.json and functions.php configuration.
+$use-icons-module: false;

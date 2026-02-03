@@ -1,0 +1,23 @@
+@use '~design' as *;
+
+.c-footer {
+  background-color: get-color('grey-100');
+}
+
+.c-footer__inner {
+  padding-top: get-padding('small');
+  padding-bottom: get-padding('small');
+}
+
+.c-footer__column {
+  .c-widget:first-child {
+    :first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.c-footer__copyright {
+  padding: 0 0 get-padding('normal');
+  font-size: get-font-size('small');
+}

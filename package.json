@@ -1,0 +1,65 @@
+{
+  "name": "chisel-with-core",
+  "version": "2.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "Rafal Puczel",
+  "description": "Chisel WP",
+  "scripts": {
+    "devcontainer": "npx @devcontainers/cli@0.71",
+    "devcontainer:up": "npm run --silent devcontainer -- up --workspace-folder ../../..",
+    "devcontainer:enter": "/usr/bin/env bash ../../../.devcontainer/exec bash",
+    "devcontainer:start": "/usr/bin/env bash ../../../.devcontainer/exec npm run --silent start",
+    "//icons-module": "Add --use-icons-module to start and build-scripts jobs to enable icons module. Also requires scss and functions.php configuration.",
+    "start": "chisel-scripts start --experimental-modules",
+    "dev": "npm run --silent start",
+    "build-scripts": "chisel-scripts build --experimental-modules",
+    "build": "npm run build-scripts && npm run lint && npm run phpcs && npm run twigcs",
+    "add-page": "chisel-scripts add-page",
+    "create-block": "chisel-scripts create-block --category=chisel-blocks --namespace=chisel",
+    "wp": "chisel-scripts wp",
+    "composer": "chisel-scripts composer",
+    "wp-config": "chisel-scripts wp-config",
+    "phpcs": "cross-env vendor/bin/phpcs --extensions=php --exclude=Generic.PHP.Syntax",
+    "twigcs": "cross-env vendor/bin/twigcs --config=twig_cs.php",
+    "check-update": "chisel-scripts check-chisel-update",
+    "update-chisel": "chisel-scripts chisel-update",
+    "update": "npm run check-update && npm run update-chisel",
+    "prepare": "cd ../../.. && husky install wp-content/themes/chisel-with-core-chisel/.husky",
+    "lint:script": "eslint . --ignore-path .gitignore --fix --ext .js,.jsx,.ts,.tsx,.vue,.cjs,.mjs && echo Linting scripts completed successfully",
+    "lint:style": "stylelint \"**/*.{css,scss,vue}\" --aei --fix --ignore-path .stylelintignore --ignore-path .gitignore && echo Linting styles completed successfully",
+    "lint": "npm run --silent lint:script && npm run --silent lint:style",
+    "format": "prettier --write --ignore-unknown --log-level warn \"**/*\" && echo Formatting completed successfully",
+    "format-and-lint": "npm run --silent format && npm run --silent lint"
+  },
+  "dependencies": {
+    "@wordpress/interactivity": "^6.36.0",
+    "swiper": "^11.1.10"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^31.2.0",
+    "@xfive/eslint-config-prettier": "^0.1.0",
+    "chisel-scripts": "^2.1.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.8.1",
+    "stylelint": "^16.26.1",
+    "stylelint-config-css-modules": "^4.6.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recess-order": "^4.6.0",
+    "stylelint-config-standard-scss": "^12.0.0",
+    "stylelint-prettier": "^5.0.3"
+  },
+  "overrides": {
+    "@wordpress/scripts": {
+      "eslint-config-prettier": "^9.0.0",
+      "prettier": "^3.0.0"
+    }
+  },
+  "chisel": {
+    "tablePrefix": "sqwshb0s_"
+  }
+}

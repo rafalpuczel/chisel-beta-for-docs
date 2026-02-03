@@ -1,0 +1,88 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@use '~design' as *;
+
+.b-accordion {
+  padding: 0;
+
+  details > summary {
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.b-accordion__item {
+  margin: get-margin('small') 0;
+  overflow: hidden;
+  background-color: get-color('white');
+  border: 1px solid get-color('grey-100');
+  border-radius: get-border-radius('small');
+}
+
+.b-accordion__item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: get-padding('small');
+  cursor: pointer;
+  background-color: get-color('grey-100');
+}
+
+.b-accordion__item-title {
+  margin: 0;
+  font-size: get-font-size('medium');
+  font-weight: 700;
+}
+
+.b-accordion__item-content {
+  padding: get-padding('small');
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.b-accordion__icons {
+  display: block;
+  flex-shrink: 0;
+  width: px-rem(24);
+  height: px-rem(24);
+  margin-left: get-margin('small');
+
+  .o-icon {
+    width: 100%;
+    height: 100%;
+    color: get-color('black');
+
+    &::before {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .o-icon--icon-plus {
+    display: block;
+  }
+
+  .o-icon--icon-minus {
+    display: none;
+  }
+
+  .b-accordion__item[open] & {
+    .o-icon--icon-plus {
+      display: none;
+    }
+
+    .o-icon--icon-minus {
+      display: block;
+    }
+  }
+}

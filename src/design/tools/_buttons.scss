@@ -1,0 +1,144 @@
+@use 'theme' as *;
+@use 'icon' as *;
+@use 'px-to-rem' as *;
+@use 'colors' as *;
+
+@mixin button() {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  padding: px-rem(14) px-rem(24);
+  font-size: get-font-size('normal');
+  font-weight: 400;
+  line-height: px-rem(24);
+  text-decoration: none;
+  appearance: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: get-border-radius('little');
+  transition: get-transition('normal');
+
+  &::after {
+    transition: get-transition('normal');
+  }
+}
+
+@mixin button-disabled() {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+@mixin button-primary() {
+  color: get-color('white');
+  background-color: get-color('primary');
+  border-color: get-color('primary');
+}
+
+@mixin button-primary-hover() {
+  color: get-color('white');
+  background-color: get-color('primary-300');
+  border-color: get-color('primary-300');
+}
+
+@mixin button-primary-focus() {
+  outline: 4px solid rgba-color('primary', 50%);
+}
+
+@mixin button-primary-icon() {
+  &::after {
+    background-color: get-color('white');
+  }
+}
+
+@mixin button-primary-outline() {
+  color: get-color('primary');
+  background-color: transparent;
+  border-color: get-color('primary');
+}
+
+@mixin button-primary-outline-hover() {
+  color: get-color('white');
+  background-color: get-color('primary');
+  border-color: get-color('primary');
+}
+
+@mixin button-primary-outline-focus() {
+  outline: 4px solid rgba-color('primary', 50%);
+}
+
+@mixin button-primary-outline-icon() {
+  &::after {
+    background-color: get-color('primary');
+  }
+}
+
+@mixin button-primary-outline-icon-hover() {
+  &::after {
+    background-color: get-color('white');
+  }
+}
+
+@mixin button-secondary() {
+  color: get-color('white');
+  background-color: get-color('foreground');
+  border-color: get-color('foreground');
+}
+
+@mixin button-secondary-hover() {
+  color: get-color('white');
+  background-color: get-color('primary');
+  border-color: get-color('primary');
+}
+
+@mixin button-secondary-focus() {
+  outline: 4px solid rgba-color('primary', 50%);
+}
+
+@mixin button-secondary-outline() {
+  color: get-color('foreground');
+  background-color: transparent;
+  border-color: get-color('foreground');
+}
+
+@mixin button-secondary-outline-hover() {
+  color: get-color('white');
+  background-color: get-color('foreground');
+  border-color: get-color('foreground');
+}
+
+@mixin button-secondary-outline-focus() {
+  outline: 4px solid rgba-color('foreground', 50%);
+}
+
+@mixin button-secondary-outline-icon() {
+  &::after {
+    background-color: get-color('foreground');
+  }
+}
+
+@mixin button-secondary-outline-icon-hover() {
+  &::after {
+    background-color: get-color('white');
+  }
+}
+
+@mixin button-small() {
+  padding: px-rem(10) px-rem(20);
+  font-size: get-font-size('small');
+}
+
+@mixin button-large() {
+  padding: px-rem(16) px-rem(28);
+}
+
+@mixin button-loading($color: currentColor) {
+  &::after {
+    width: px-rem(24);
+    height: px-rem(24);
+    margin-left: px-rem(8);
+    content: '';
+    background-color: $color;
+    @include icon-svg('loader', false, true);
+  }
+}

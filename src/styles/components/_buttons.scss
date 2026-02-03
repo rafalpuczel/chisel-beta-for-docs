@@ -1,0 +1,125 @@
+@use '~design' as *;
+@use '../../design/settings';
+
+$_static-icons: settings.$static-icons;
+
+.c-btn {
+  @include button;
+
+  &.is-loading {
+    @include button-loading;
+  }
+
+  &:disabled {
+    @include button-disabled;
+  }
+}
+
+.c-btn--primary {
+  @include button-primary;
+  @include button-primary-icon;
+}
+
+.c-btn--primary:hover,
+.c-btn--primary:focus {
+  @include button-primary-hover;
+}
+
+.c-btn--primary:focus {
+  @include button-primary-focus;
+}
+
+.c-btn--primary-outline {
+  @include button-primary-outline;
+  @include button-primary-outline-icon;
+}
+
+.c-btn--primary-outline:hover,
+.c-btn--primary-outline:focus {
+  @include button-primary-outline-hover;
+  @include button-primary-outline-icon-hover;
+}
+
+.c-btn--primary-outline:focus {
+  @include button-primary-outline-focus;
+}
+
+.c-btn--secondary {
+  @include button-secondary;
+}
+
+.c-btn--secondary:hover,
+.c-btn--secondary:focus {
+  @include button-secondary-hover;
+}
+
+.c-btn--secondary:focus {
+  @include button-secondary-focus;
+}
+
+.c-btn--secondary-outline {
+  @include button-secondary-outline;
+  @include button-secondary-outline-icon;
+}
+
+.c-btn--secondary-outline:hover,
+.c-btn--secondary-outline:focus {
+  @include button-secondary-outline-hover;
+  @include button-secondary-outline-icon-hover;
+}
+
+.c-btn--secondary-outline:focus {
+  @include button-secondary-outline-focus;
+}
+
+.c-btn--small {
+  @include button-small;
+}
+
+.c-btn--large {
+  @include button-large;
+}
+
+@each $icon in $_static-icons {
+  .c-btn.has-icon-#{$icon} {
+    &::after,
+    &::before {
+      @include icon-svg($icon);
+    }
+  }
+}
+
+.c-btn.has-icon {
+  &::after,
+  &::before {
+    display: block;
+    width: px-rem(24);
+    height: px-rem(24);
+    margin-right: px-rem(-6);
+    margin-left: px-rem(6);
+    content: '';
+  }
+
+  &::before {
+    display: none;
+  }
+
+  &.has-icon-left {
+    &::before {
+      display: block;
+      margin-right: px-rem(6);
+      margin-left: px-rem(-6);
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &.has-icon-only {
+    &::after,
+    &::before {
+      margin: 0;
+    }
+  }
+}

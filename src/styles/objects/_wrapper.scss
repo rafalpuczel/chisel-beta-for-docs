@@ -1,0 +1,22 @@
+@use '~design' as *;
+
+.o-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.o-wrapper * {
+  box-sizing: border-box;
+}
+
+.o-wrapper__inner {
+  width: 100%;
+  max-width: get-layout-size('content');
+  padding-inline: get-padding('normal');
+  margin-inline: auto;
+
+  &--wide {
+    max-width: get-layout-size('wide');
+  }
+}

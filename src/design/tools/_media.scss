@@ -1,0 +1,21 @@
+@mixin object-fit-cover($position: center) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: $position;
+}
+
+@mixin background-image($name, $extension: 'svg', $is-block: false, $is-icon: false) {
+  $path: '../../';
+  $folder: 'images';
+
+  @if $is-block {
+    $path: '../../../';
+  }
+
+  @if $is-icon {
+    $folder: 'icons';
+  }
+
+  background-image: url('#{$path}assets/#{$folder}/#{$name}.#{$extension}');
+}

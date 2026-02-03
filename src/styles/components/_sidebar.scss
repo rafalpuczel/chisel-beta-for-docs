@@ -1,0 +1,20 @@
+@use '~design' as *;
+
+.c-sidebar {
+  padding-bottom: get-padding('large');
+
+  .c-post & {
+    padding-top: get-padding('large');
+  }
+
+  &--left {
+    order: -1;
+  }
+}
+
+.c-sidebar__inner {
+  padding: get-padding('normal');
+  background-color: get-color('white');
+  border: 1px solid get-color('grey-100');
+  border-radius: get-border-radius('small');
+}

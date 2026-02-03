@@ -1,0 +1,19 @@
+@use '~design' as *;
+@use '../../design/settings/' as *;
+
+.c-breadcrumbs {
+  position: relative;
+  margin: get-margin('small') 0;
+  font-size: get-font-size('small');
+
+  span {
+    span {
+      display: inline-block;
+      margin-inline: get-margin('tiny');
+
+      &:first-child {
+        margin-inline-start: 0;
+      }
+    }
+  }
+}

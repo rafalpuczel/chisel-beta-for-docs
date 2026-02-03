@@ -1,0 +1,34 @@
+@use '~design' as *;
+
+.c-header {
+  background-color: get-color('grey-100');
+
+  .c-logo {
+    max-width: px-rem(200);
+    height: px-rem(80);
+
+    &__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.c-header__inner {
+  position: relative;
+  display: flex;
+  gap: get-gap('normal');
+  align-items: center;
+  justify-content: space-between;
+  padding-top: get-padding('little');
+  padding-bottom: get-padding('little');
+}

@@ -1,0 +1,33 @@
+@use '~design' as *;
+
+.wp-block-spacer {
+  padding: get-margin('normal') 0;
+  margin: 0 !important;
+  margin-block-start: 0 !important;
+
+  &.is-style {
+    &-tiny {
+      padding: get-margin('tiny') 0;
+    }
+
+    &-small {
+      padding: get-margin('small') 0;
+    }
+
+    &-medium {
+      padding: get-margin('medium') 0;
+    }
+
+    &-large {
+      padding: get-margin('large') 0;
+    }
+
+    &-xlarge {
+      padding: get-margin('xlarge') 0;
+    }
+
+    &-big {
+      padding: get-margin('big') 0;
+    }
+  }
+}

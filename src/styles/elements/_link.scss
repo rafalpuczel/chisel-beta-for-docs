@@ -1,0 +1,7 @@
+@use '~design' as *;
+
+a {
+  cursor: pointer;
+  transition: get-transition('normal');
+  @include link;
+}

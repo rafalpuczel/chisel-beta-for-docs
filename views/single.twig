@@ -1,0 +1,72 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <article id="post-{{ post.ID }}" class="{{ post_classes(post.class) }}">
+    <section class="o-wrapper__inner c-post__inner {{ wrapper_class }}">
+
+      <div class="o-layout c-content{% if sidebar.content %} has-sidebar{% endif %}">
+        <div class="{{ bem('o-layout__item', (sidebar.content ? '8' : '12') ~ '-large') }} c-content__inner">
+
+          {% block the_title %}
+            {% include 'components/the-title.twig' %}
+          {% endblock %}
+
+          {% block inner_content %}
+
+            {% block post_meta %}
+              <div class="c-post__meta">
+                <span class="c-post__author"><a href="{{ post.author.link }}">{{ __('By', 'chisel') }} {{ post.author.name }}</a></span> •
+                <time datetime="{{ post.date }}">{{ post.date }}</time></span>
+              </div>
+            {% endblock %}
+
+            {% block post_image %}
+              {% if post.get_thumbnail('large') %}
+                <div class="c-post__image">
+                  {{ post.get_thumbnail() }}
+                </div>
+              {% endif %}
+            {% endblock %}
+
+            {% block post_terms %}
+              <div class="c-post__terms">
+                {% if post.categories %}
+                  <p class="c-post__categories">
+                    {{ __('Categories', 'chisel') }}:
+                    {% for category in post.categories %}
+                      <span class="c-post__categories"><a href="{{ category.link }}">{{ category }}</a>{% if not loop.last %}, {% endif %}</span>
+                    {% endfor %}
+                  </p>
+                {% endif %}
+
+                {% if post.tags %}
+                  <p class="c-post__tags">
+                    {{ __('Tags', 'chisel') }}:
+                    {% for tag in post.tags %}
+                      <span class="c-post__tags"><a href="{{ tag.link }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}</span>
+                    {% endfor %}
+                  </p>
+                {% endif %}
+              </div>
+            {% endblock %}
+
+            {% block post_content %}
+              {{ post.content }}
+            {% endblock %}
+
+            {% block post_comments %}
+              {{ comments_template() }}
+            {% endblock %}
+          {% endblock %}
+        </div>
+
+        {% if sidebar.content %}
+          {% block post_sidebar %}
+            {% include 'sidebar-blog.twig' %}
+          {% endblock %}
+        {% endif %}
+      </div>
+    </section>
+  </article>
+{% endblock %}
+

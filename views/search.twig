@@ -1,0 +1,9 @@
+{% extends "index.twig" %}
+
+{% block before_loop %}
+  <div class="c-search-results-header">
+    {% include "components/search-form.twig" with {
+      placeholder: __('Search for something else...', 'chisel')
+    } %}
+  </div>
+{% endblock %}

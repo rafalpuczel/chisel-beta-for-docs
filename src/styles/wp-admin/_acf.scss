@@ -1,0 +1,29 @@
+@use '~design' as *;
+
+.acf-color-picker {
+  .iris-picker {
+    padding-bottom: px-rem(40) !important; // Increase if needed, i.e. when you have more colors.
+  }
+
+  .iris-palette-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+
+    .iris-palette {
+      display: block;
+      float: none !important;
+      width: 16px !important;
+      height: 16px !important;
+      margin: 0 2px 2px 0 !important;
+    }
+  }
+}
+
+.menu-item {
+  &:not(.menu-item-depth-0) {
+    .acf-field[data-name='mega_menu_default_dropdown'] {
+      display: none !important;
+    }
+  }
+}

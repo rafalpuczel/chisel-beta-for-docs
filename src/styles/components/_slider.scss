@@ -1,0 +1,128 @@
+@use '~design' as *;
+
+.swiper {
+  opacity: 0;
+  transition: get-transition('slow');
+}
+
+.swiper-initialized {
+  opacity: 1;
+}
+
+.swiper-slide {
+  height: auto !important;
+
+  img {
+    @include object-fit-cover;
+
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.swiper-navigation-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transform: translateY(-50%);
+
+  .swiper-button {
+    top: 50%;
+    width: px-rem(48);
+    height: px-rem(48);
+    margin: 0;
+    appearance: none;
+    background-color: rgba(255, 255, 255, 30%);
+    border: none;
+    opacity: 1;
+    transition: get-transition('normal');
+    transform: translateY(-50%);
+
+    &::after {
+      font-size: px-rem(24);
+      color: get-color('primary');
+      transition: get-transition('normal');
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 100%);
+
+      &::after {
+        color: get-color('foreground');
+      }
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+}
+
+.swiper-pagination-wrapper {
+  position: absolute;
+  bottom: px-rem(10);
+  left: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding: get-padding('tiny');
+  font-size: 0;
+  line-height: 1;
+  background-color: rgba(255, 255, 255, 30%);
+  border-radius: get-border-radius('tiny');
+  transition: get-transition('normal');
+  transform: translateX(-50%);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 100%);
+  }
+
+  .swiper-pagination-bullet {
+    width: px-rem(10);
+    height: px-rem(10);
+    background-color: get-color('primary');
+    opacity: 0.3;
+  }
+}
+
+.swiper-pagination.swiper-pagination-horizontal {
+  position: relative;
+  inset: auto !important;
+  transform: none !important;
+}
+
+.swiper-pagination-bullet-active-main,
+.swiper-pagination:not(.swiper-pagination-dots-dynamic) .swiper-pagination-bullet-active {
+  background-color: get-color('foreground');
+  opacity: 1;
+}
+
+.swiper-thumbs {
+  padding: get-padding('small') 0 !important;
+
+  .swiper-slide {
+    cursor: pointer;
+    background-color: get-color('white');
+
+    img {
+      @include object-fit-cover;
+
+      border: 2px solid get-color('foreground');
+      opacity: 0.75;
+      transition: get-transition('normal');
+    }
+
+    &.swiper-slide-thumb-active img {
+      border: 2px solid get-color('primary');
+      opacity: 1;
+    }
+  }
+}

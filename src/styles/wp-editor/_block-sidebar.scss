@@ -1,0 +1,30 @@
+@use '~design' as *;
+
+$sidebar-width-xlarge: 350px;
+$sidebar-width-full: 450px;
+
+.block-editor-block-inspector {
+  opacity: 0;
+
+  &.e-block-sidebar {
+    opacity: 1;
+
+    &--core-spacer {
+      // Hide the height settings for the spacer block.
+      .block-editor-block-card + div + div {
+        display: none;
+      }
+    }
+  }
+}
+
+// Make the sidebar panel a bit wider.
+.interface-complementary-area__fill {
+  @include bp(782px) {
+    width: px-rem(400) !important;
+
+    > .interface-complementary-area {
+      width: 100% !important;
+    }
+  }
+}

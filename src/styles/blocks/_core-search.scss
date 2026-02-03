@@ -1,0 +1,15 @@
+@use '~design' as *;
+
+.wp-block-search__inside-wrapper {
+  align-items: flex-start;
+}
+
+.wp-block-search__input,
+.wp-block-search__button {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.wp-block-search__button {
+  margin-left: px-rem(8);
+}

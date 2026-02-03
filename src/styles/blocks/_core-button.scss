@@ -1,0 +1,123 @@
+@use '~design' as *;
+@use '../../design/settings';
+
+$_static-icons: settings.$static-icons;
+
+.wp-block-button {
+  .wp-block-button__link {
+    @include button;
+
+    &.has-text-align-center {
+      justify-content: center;
+    }
+
+    &:disabled {
+      @include button-disabled;
+    }
+  }
+
+  .wp-block-button__link,
+  &.is-style-primary .wp-block-button__link {
+    @include button-primary;
+    @include button-primary-icon;
+
+    &:hover,
+    &:focus {
+      @include button-primary-hover;
+    }
+
+    &:focus {
+      @include button-primary-focus;
+    }
+  }
+
+  &.is-style-primary-outline .wp-block-button__link {
+    @include button-primary-outline;
+    @include button-primary-outline-icon;
+
+    &:hover,
+    &:focus {
+      @include button-primary-outline-hover;
+      @include button-primary-outline-icon-hover;
+    }
+
+    &:focus {
+      @include button-primary-outline-focus;
+    }
+  }
+
+  &.is-style-secondary .wp-block-button__link {
+    @include button-secondary;
+
+    &:hover,
+    &:focus {
+      @include button-secondary-hover;
+    }
+
+    &:focus {
+      @include button-secondary-focus;
+    }
+  }
+
+  &.is-style-secondary-outline .wp-block-button__link {
+    @include button-secondary-outline;
+    @include button-secondary-outline-icon;
+
+    &:hover,
+    &:focus {
+      @include button-secondary-outline-hover;
+      @include button-secondary-outline-icon-hover;
+    }
+
+    &:focus {
+      @include button-secondary-outline-focus;
+    }
+  }
+
+  &.is-size-small .wp-block-button__link {
+    @include button-small;
+  }
+
+  &.is-size-large .wp-block-button__link {
+    @include button-large;
+  }
+
+  @each $icon in $_static-icons {
+    &.has-icon-#{$icon} .wp-block-button__link {
+      &::after,
+      &::before {
+        @include icon-svg($icon);
+      }
+    }
+  }
+
+  &.has-icon {
+    .wp-block-button__link {
+      &::after,
+      &::before {
+        display: block;
+        width: px-rem(24);
+        height: px-rem(24);
+        margin-right: px-rem(-6);
+        margin-left: px-rem(6);
+        content: '';
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &.has-icon-left .wp-block-button__link {
+      &::before {
+        display: block;
+        margin-right: px-rem(6);
+        margin-left: px-rem(-6);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

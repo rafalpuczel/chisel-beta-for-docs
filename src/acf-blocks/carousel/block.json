@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "chisel/carousel",
+	"version": "0.1.0",
+	"title": "Carousel",
+	"category": "chisel-blocks",
+	"icon": "image",
+	"description": "Carousel Block",
+	"textdomain": "chisel",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
